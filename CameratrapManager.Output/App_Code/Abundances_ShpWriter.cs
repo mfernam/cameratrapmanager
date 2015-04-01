@@ -192,11 +192,6 @@ namespace CameratrapManager.Output
 			} catch (Exception ex) {
 				throw ex;
 			}
-			
-			
-			
 		}
-		
-		
 	}
 }

@@ -22,7 +22,6 @@ using System.Data;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-
 using Core.ImageProcessing;
 using CameratrapManager.Model;
 using CameratrapManager.OCR;
@@ -68,11 +67,9 @@ namespace CameratrapManager
 		void MainFormLoad(object sender, EventArgs e)
 		{
 			try {
-				speciesList.Columns.Add("Target Species", typeof(string));
-				
+				speciesList.Columns.Add("Target Species", typeof(string));				
 				cmbSelectSpecies.AutoCompleteMode=AutoCompleteMode.SuggestAppend;
-				cmbSelectSpecies.AutoCompleteSource = AutoCompleteSource.CustomSource;
-				
+				cmbSelectSpecies.AutoCompleteSource = AutoCompleteSource.CustomSource;				
 				DataTable table = new DataTable();
 				table.Columns.Add("1", typeof(int));
 				table.Columns.Add("2", typeof(int));
@@ -94,24 +91,19 @@ namespace CameratrapManager
 				btEmpty.Enabled=false;
 				btInvalid.Enabled=false;
 				btManagement.Enabled=false;
-				btUnknown.Enabled=false;
-				
-				cmbSelectSpecies.Enabled=false;
-				
+				btUnknown.Enabled=false;				
+				cmbSelectSpecies.Enabled=false;				
 				saveProjectToolStripMenuItem.Enabled=false;
-				closeProjectToolStripMenuItem.Enabled=false;
-				
+				closeProjectToolStripMenuItem.Enabled=false;				
 				cameraStationsToolStripMenuItem.Enabled=false;
 				photoSamplesToolStripMenuItem.Enabled=false;
-				reportsToolStripMenuItem.Enabled=false;
-				
+				reportsToolStripMenuItem.Enabled=false;				
 				
 			}
 			catch (Exception ex)
 			{
 				throw(ex);
 			}
-
 		}
 		
 		void EnableButtons()
@@ -167,22 +159,16 @@ namespace CameratrapManager
 				
 				if( openProjectDialog.ShowDialog() == DialogResult.OK )
 				{
-					_currentProject = ProjectDAO.LoadProject(Path.GetFileNameWithoutExtension(openProjectDialog.FileName));
-					
-					refreshSpeciesList(_currentProject);
-					
-					PopulateTree();
-					
-					EnableButtons();
-					
-//					ProjectDAO.VacuumProject(_currentProject.Name);
-					
+					_currentProject = ProjectDAO.LoadProject(Path.GetFileNameWithoutExtension(openProjectDialog.FileName));					
+					refreshSpeciesList(_currentProject);					
+					PopulateTree();					
+					EnableButtons();					
+//					ProjectDAO.VacuumProject(_currentProject.Name);					
 				}
 			} catch (Exception ex) {
 				throw ex;
 			}
-		}
-		
+		}		
 		
 		#endregion
 		
@@ -659,17 +645,14 @@ namespace CameratrapManager
 						default:
 							tvProject.SelectedNode.ImageIndex = tvProject.SelectedNode.SelectedImageIndex = 2;
 							break;
-					}
-					
+					}					
 				}
 				else if(tvProject.SelectedNode.Tag.GetType()==typeof(Sample))
-				{
-					
+				{					
 					switch (((Sample)tvProject.SelectedNode.Tag).Species_Observations_list[0].Value) {
 						case "Pending":
 							tvProject.SelectedNode.ImageIndex = tvProject.SelectedNode.SelectedImageIndex = 2;
-							break;
-							
+							break;							
 						case "Unknown":
 							tvProject.SelectedNode.ImageIndex = tvProject.SelectedNode.SelectedImageIndex = 4;
 							break;
@@ -690,8 +673,6 @@ namespace CameratrapManager
 			} catch (Exception ex) {
 				throw ex;
 			}
-			
-
 		}
 		
 		private void PopulateTree()
@@ -706,30 +687,22 @@ namespace CameratrapManager
 					int id_station=1;
 					foreach(Station st in _currentProject.StationsList)
 					{
-						TreeNode secondNode=new TreeNode();
-						
+						TreeNode secondNode=new TreeNode();				
 						
 						switch (st.MainPictureFilename!="Not Provided" && st.Alt!=0 &&st.Compass!=0 && st.Lat!=0 && st.Lon!=0) {
-							case true:
-								
+							case true:								
 								secondNode=firstNode.Nodes.Add("Station "+st.StationID,"Station "+st.StationID,1);
-								secondNode.Tag=st;
-								
-								secondNode.ImageIndex = secondNode.SelectedImageIndex = 6;
-								
+								secondNode.Tag=st;								
+								secondNode.ImageIndex = secondNode.SelectedImageIndex = 6;								
 								id_station++;
 								break;
 							default:
 								secondNode=firstNode.Nodes.Add("Station "+st.StationID,"Station "+st.StationID,2);
-								secondNode.Tag=st;
-								
-								secondNode.ImageIndex = secondNode.SelectedImageIndex = 2;
-								
+								secondNode.Tag=st;								
+								secondNode.ImageIndex = secondNode.SelectedImageIndex = 2;								
 								id_station++;
 								break;
-						}
-						
-						
+						}					
 						
 						if (st.SamplesList.Count>0)
 						{
@@ -741,66 +714,44 @@ namespace CameratrapManager
 								switch (((SpeciesObservation)smpl.Species_Observations_list[0]).Value) {
 									case "Pending":
 										thirdNode = secondNode.Nodes.Add("Sample "+id_sample.ToString(),"Sample "+id_sample.ToString(),2);
-										thirdNode.Tag = smpl;
-										
-										thirdNode.ImageIndex = thirdNode.SelectedImageIndex = 2;
-										
-										id_sample++;
-										
+										thirdNode.Tag = smpl;										
+										thirdNode.ImageIndex = thirdNode.SelectedImageIndex = 2;										
+										id_sample++;										
 										break;
 									case "Unknown":
 										thirdNode = secondNode.Nodes.Add("Sample "+id_sample.ToString(),"Sample "+id_sample.ToString(),4);
-										thirdNode.Tag = smpl;
-										
-										thirdNode.ImageIndex = thirdNode.SelectedImageIndex = 4;
-										
-										id_sample++;
-										
+										thirdNode.Tag = smpl;										
+										thirdNode.ImageIndex = thirdNode.SelectedImageIndex = 4;										
+										id_sample++;										
 										break;
 									case "Invalid Picture":
 										thirdNode = secondNode.Nodes.Add("Sample "+id_sample.ToString(),"Sample "+id_sample.ToString(),3);
-										thirdNode.Tag = smpl;
-										
-										thirdNode.ImageIndex = thirdNode.SelectedImageIndex = 3;
-										
-										id_sample++;
-										
-										break;
-										
+										thirdNode.Tag = smpl;										
+										thirdNode.ImageIndex = thirdNode.SelectedImageIndex = 3;										
+										id_sample++;										
+										break;										
 									case "Empty Picture":
 										thirdNode = secondNode.Nodes.Add("Sample "+id_sample.ToString(),"Sample "+id_sample.ToString(),5);
-										thirdNode.Tag = smpl;
-										
-										thirdNode.ImageIndex = thirdNode.SelectedImageIndex = 5;
-										
-										id_sample++;
-										
-										break;
-										
+										thirdNode.Tag = smpl;										
+										thirdNode.ImageIndex = thirdNode.SelectedImageIndex = 5;										
+										id_sample++;										
+										break;										
 									case "Management":
 										thirdNode = secondNode.Nodes.Add("Sample "+id_sample.ToString(),"Sample "+id_sample.ToString(),6);
-										thirdNode.Tag = smpl;
-										
-										thirdNode.ImageIndex = thirdNode.SelectedImageIndex = 6;
-										
-										id_sample++;
-										
-										break;
-										
+										thirdNode.Tag = smpl;										
+										thirdNode.ImageIndex = thirdNode.SelectedImageIndex = 6;										
+										id_sample++;									
+										break;										
 									default:
 										thirdNode = secondNode.Nodes.Add("Sample "+id_sample.ToString(),"Sample "+id_sample.ToString(),1);
-										thirdNode.Tag = smpl;
-										
-										thirdNode.ImageIndex = thirdNode.SelectedImageIndex = 1;
-										
-										id_sample++;
-										
+										thirdNode.Tag = smpl;										
+										thirdNode.ImageIndex = thirdNode.SelectedImageIndex = 1;										
+										id_sample++;										
 										break;
 								}
 							}
 						}
-					}
-					
+					}					
 				}
 				tvProject.ExpandAll();
 			} catch (Exception ex) {
@@ -1158,42 +1109,38 @@ namespace CameratrapManager
 		void ExitApplication()
 		{
 			try {
-				DialogResult result = MessageBox.Show("Would you like to save your changes?", "Save project?",
-				                                      MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-				
-				if (result == DialogResult.Yes)
-				{
-					ProjectDAO.UpdateProject(_currentProject.Name,_currentProject);
-					ProjectDAO.RemoveOrphanImages(_currentProject);
-					
-					tvProject.Dispose();
-					pictureBox1.Dispose();
-					_currentProject=null;
-					_currentStation=null;
-					_currentSample=null;
-					lstViewData.Dispose();
-					dgvSelectSpecies.Dispose();
-				}
-				else if (result == DialogResult.Cancel)
-				{
-					//				Stop the closing and return to the form
-					//				e.Cancel = true;
-				}
+					DialogResult result = MessageBox.Show("Would you like to save your changes?", "Save project?",
+					                                      MessageBoxButtons.YesNo,MessageBoxIcon.Question);					
+					if (result == DialogResult.Yes)
+					{
+						ProjectDAO.UpdateProject(_currentProject.Name,_currentProject);
+						ProjectDAO.RemoveOrphanImages(_currentProject);
+						
+						tvProject.Dispose();
+						pictureBox1.Dispose();
+						_currentProject=null;
+						_currentStation=null;
+						_currentSample=null;
+						lstViewData.Dispose();
+						dgvSelectSpecies.Dispose();
+					}
+					else if (result == DialogResult.No)
+					{
+						Application.Exit();
+						//				Stop the closing and return to the form
+						//				e.Cancel = true;
+					}
 			} catch (Exception ex) {
 				throw ex;
 			}
-
 		}
 		
 		void MainFormFormClosing(object sender, FormClosingEventArgs e)
 		{
-			ExitApplication();
+			Application.Exit();
 		}
 		
 		#endregion
-		
-
-		
 
 //		void CmsTreeViewOpening(object sender, System.ComponentModel.CancelEventArgs e)
 //		{
@@ -1202,15 +1149,5 @@ namespace CameratrapManager
 //				cntxtsbRemoveSample.Enabled=false;
 //			}
 //		}
-		
-		
-		
-		
-
-		
-		void ToolStripProgressBar1Click(object sender, EventArgs e)
-		{
-			
-		}
 	}
 }

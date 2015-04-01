@@ -55,8 +55,7 @@ namespace CameratrapManager.Model
 			_alt=alt;
 			_compass=compass;
 			_stationID=stationID;
-		}
-		
+		}		
 		
 		/// <summary>
 		/// Create a new Station object providing a mainPicture which contains the required EXIF metadata
@@ -65,10 +64,8 @@ namespace CameratrapManager.Model
 		public Station(string stationID, IPolygon grid, string image)
 		{			
 			_stationID=stationID;
-			_grid=grid;
-			
-			this.MetadataFromImage(image);
-			
+			_grid=grid;			
+			this.MetadataFromImage(image);			
 		}
 		
 		string _stationID;
@@ -81,7 +78,8 @@ namespace CameratrapManager.Model
 		double _compass=0;
 		List<Sample> _samplesList=new List<Sample>();
 
-	
+		
+		#region Properties
 		
 		public string StationID {
 			get { return _stationID; }
@@ -94,8 +92,7 @@ namespace CameratrapManager.Model
 		
 		public IPolygon Grid {
 			get { return _grid; }
-		}
-		
+		}		
 
 		public string MainPictureFilename {
 			get { return _mainPictureFilename; }
@@ -126,14 +123,13 @@ namespace CameratrapManager.Model
 			get { return _samplesList; }
 			set { _samplesList = value; }
 		}
-		
+		#endregion
 
 		public void MetadataFromImage(string image)
 		{
 			
 			JpgPhoto mainPhoto = new JpgPhoto(image);
-			_mainPictureFilename = image;
-			
+			_mainPictureFilename = image;			
 			_lat=mainPhoto.Metadata.GpsPositionOfLocationCreated.Latitude.Numeric;
 			_lon=mainPhoto.Metadata.GpsPositionOfLocationCreated.Longitude.Numeric;
 			_alt=mainPhoto.Metadata.GpsPositionOfLocationCreated.Altitude;

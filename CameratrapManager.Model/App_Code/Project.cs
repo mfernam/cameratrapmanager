@@ -31,11 +31,25 @@ namespace CameratrapManager.Model
 	[Serializable]
 	public class Project
 	{
+		
+		string _name = string.Empty;
+		string _type = string.Empty;
+		string _creator = string.Empty;
+		string _subject = string.Empty;
+		string _description = string.Empty;
+		DateTime _startDate;
+		DateTime _completionDate;
+		List<string> _speciesList=new List<string>();
+		List<Station> _stationsList=new List<Station>();
+		
+		List<IPolygon>_studyArea=new List<IPolygon>();
+		List<IPolygon>_grid=new List<IPolygon>();
+		
 		public Project()
 		{
 		}
 		
-		public Project(string name, string type, string creator, 
+		/*public Project(string name, string type, string creator, 
 		               string subject, string description, DateTime startDate, 
 		               DateTime completionDate, List<IPolygon> studyArea, int gridSize)
 		{
@@ -49,22 +63,13 @@ namespace CameratrapManager.Model
 			_studyArea=studyArea;
 			this.CreateGrid(_studyArea,gridSize);
 			this.StationsListFromGrid();
-		}
-		
-		string _name;
-		string _type;
-		string _creator;
-		string _subject;
-		string _description;
-		DateTime _startDate;
-		DateTime _completionDate;
-		List<string> _speciesList=new List<string>();
-		List<Station> _stationsList=new List<Station>();
-		
-		List<IPolygon>_studyArea;
-		List<IPolygon>_grid;
-		
-		
+		}*/
+		public Project(List<IPolygon> studyArea, int gridSize)
+		{
+			_studyArea=studyArea;
+			this.CreateGrid(_studyArea,gridSize);
+			this.StationsListFromGrid();
+		}	
 
 		public string Name {
 			get { return _name; }
@@ -119,8 +124,6 @@ namespace CameratrapManager.Model
 			get { return _grid; }
 		}
 		
-		
-		
 		private void CreateGrid(List<IPolygon> bounds, int gridSize)
 		{
 			Core.Carto.GraticuleBuilder grid=new Core.Carto.GraticuleBuilder(_studyArea,gridSize,gridSize);
@@ -134,7 +137,5 @@ namespace CameratrapManager.Model
 				_stationsList.Add(new Station((string)pol.UserData,pol));
 			}
 		}
-		
-		
 	}
 }

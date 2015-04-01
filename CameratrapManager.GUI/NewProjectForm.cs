@@ -68,15 +68,15 @@ namespace CameratrapManager
 			try {
 				if(_studyArea != null)
 				{			
-					_newProjectCreated = new Project(txtProjectName.Text,
-			                        cmbProjectType.Text,
-			                        txtProjectCreator.Text,
-			                        txtProjectSubject.Text,
-			                        txtProjectDescription.Text,
-			                        DateTime.Now,
-			                        DateTime.Now,
-			                        _studyArea, Convert.ToInt16(txtGridSize.Text));
+					_newProjectCreated = new Project(_studyArea, Convert.ToInt16(txtGridSize.Text));
+					_newProjectCreated.Name = txtProjectName.Text;
+					_newProjectCreated.Type = cmbProjectType.Text;
+					_newProjectCreated.Creator = txtProjectCreator.Text;
+					_newProjectCreated.Description = txtProjectDescription.Text;
+					_newProjectCreated.StartDate = DateTime.Now;
+					_newProjectCreated.CompletionDate = DateTime.Now;
 					ProjectDAO.CreateNewProject(_newProjectCreated);
+					//TODO: Check creation with a method
 					_isCreated = true;
 					this.Close();
 				}

@@ -66,12 +66,6 @@ namespace Core.Carto
 			} catch (Exception ex) {
 				throw ex;
 			}
-
-
-
 		}
-		
-		
-		
 	}
 }

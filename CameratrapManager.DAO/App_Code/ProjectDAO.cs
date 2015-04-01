@@ -32,19 +32,16 @@ namespace CameratrapManager.DAO
 	/// 
 	/// </summary>
 	public class ProjectDAO
-	{
-		
-		string projectsPath = System.IO.Path.GetDirectoryName(
-			System.Reflection.Assembly.GetExecutingAssembly().Location);
+	{		
+		static string _projectsPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 				
 		public static void CreateNewProject(Project newProject)
 		{
 			try {
-				string projectsPath = System.IO.Path.GetDirectoryName( System.Reflection.Assembly.GetExecutingAssembly().Location);
 				
 				using(SQLiteConnection Conn=new SQLiteConnection())
 				{
-					Conn.ConnectionString = "Data Source="+ projectsPath + @"\\Projects\\" + newProject.Name + ".db;Version=3;New=True;Compress=True;Synchronous=Off";
+					Conn.ConnectionString = connectionString(newProject.Name);
 					Conn.Open();
 					
 					SQLiteCommand CreateCmd = new SQLiteCommand();
@@ -54,39 +51,31 @@ namespace CameratrapManager.DAO
 					CreateCmd.CommandText = "CREATE TABLE [images] ( [guid_images] TEXT  NOT NULL PRIMARY KEY, [image_base64] TEXT  NOT NULL)" ;
 					CreateCmd.ExecuteNonQuery();
 					CreateCmd.Dispose();
-					
-					
+										
 					SQLiteParameter idproject =new SQLiteParameter("@idproject",DbType.Int64){Value= 1};
 					SQLiteParameter newproject =new SQLiteParameter("@project",DbType.String){Value= ConversionUtilities.SerializeBase64(newProject)};
-					
-					
+										
 					SQLiteCommand InsertCmd = new SQLiteCommand();
 					InsertCmd=Conn.CreateCommand();
 					InsertCmd.Parameters.Add(idproject);
-					InsertCmd.Parameters.Add(newproject);
-					
+					InsertCmd.Parameters.Add(newproject);					
 					
 					InsertCmd.CommandText= "INSERT INTO project (id_project, project_base64) VALUES(@idproject, @project)";
 					InsertCmd.ExecuteNonQuery();
-					InsertCmd.Dispose();
-					
+					InsertCmd.Dispose();					
 				}
 			} catch (Exception ex) {
 				throw ex;
-			}
-			
-			
-		}
-		
+			}	
+		}		
 		
 		public static Project LoadProject(string existingProject)
 		{
 			try {
-				string projectsPath = System.IO.Path.GetDirectoryName( System.Reflection.Assembly.GetExecutingAssembly().Location);
 				Project loadedProj=new Project();
 				
 				string projectSQL = "SELECT project_base64 FROM project";// WHERE id_project=0"+id_samples.ToString();
-				SQLiteConnection projectConn = new SQLiteConnection("Data Source="+ projectsPath + @"\\Projects\\" + existingProject + ".db;Version=3;New=False;Compress=True;Synchronous=Off");
+				SQLiteConnection projectConn = new SQLiteConnection(connectionString(existingProject));
 				SQLiteCommand cmd = new SQLiteCommand(projectSQL,projectConn);
 				projectConn.Open();
 				
@@ -106,19 +95,16 @@ namespace CameratrapManager.DAO
 			} catch (Exception ex) {
 				throw ex;
 			}
-
-
 		}
 		
 		public static void RemoveOrphanImages(Project existingProject)
 		{
-			try {
-				string projectsPath = System.IO.Path.GetDirectoryName( System.Reflection.Assembly.GetExecutingAssembly().Location);
-				
+			try 
+			{
 				using(SQLiteConnection Conn=new SQLiteConnection())
 				{
 					
-					Conn.ConnectionString = "Data Source="+ projectsPath + @"\\Projects\\" + existingProject.Name +".db;New=False;Compress=True;Synchronous=Off";
+					Conn.ConnectionString = connectionString(existingProject.Name); 
 					Conn.Open();
 					
 					//Remove unnecesary images from project
@@ -138,8 +124,7 @@ namespace CameratrapManager.DAO
 						}
 					}
 					
-					storedImages.Dispose();
-					
+					storedImages.Dispose();					
 					
 					//Get remaining images list
 					List<string> remainingImages=new List<string>();
@@ -151,10 +136,8 @@ namespace CameratrapManager.DAO
 						foreach(Sample smp in st.SamplesList)
 						{
 							remainingImages.Add(smp.Guid);
-						}
-						
-					}
-					
+						}						
+					}					
 					
 					foreach(string s in existingImages)
 					{
@@ -168,8 +151,7 @@ namespace CameratrapManager.DAO
 							DeleteImageCmd.ExecuteNonQuery();
 							DeleteImageCmd.Dispose();
 						}
-					}
-					
+					}					
 				}
 			} catch (Exception ex) {
 				throw ex;
@@ -178,13 +160,11 @@ namespace CameratrapManager.DAO
 		
 		public static void VacuumProject(string existingProject)
 		{
-			try {
-				string projectsPath = System.IO.Path.GetDirectoryName( System.Reflection.Assembly.GetExecutingAssembly().Location);
-				
+			try 
+			{
 				using(SQLiteConnection Conn=new SQLiteConnection())
-				{
-					
-					Conn.ConnectionString = "Data Source="+ projectsPath + @"\\Projects\\" + existingProject +".db;New=False;Compress=True;Synchronous=Off";
+				{					
+					Conn.ConnectionString = connectionString(existingProject); 
 					Conn.Open();
 					
 					using (SQLiteCommand vacuum = Conn.CreateCommand())
@@ -197,19 +177,16 @@ namespace CameratrapManager.DAO
 				} catch (Exception ex) {
 					throw ex;
 				}
-
 		}
 		
 		
 		public static void UpdateProject(string oldProjectName, Project updatedProject)
 		{
-			try {
-				string projectsPath = System.IO.Path.GetDirectoryName( System.Reflection.Assembly.GetExecutingAssembly().Location);
-				
+			try 
+			{
 				using(SQLiteConnection Conn=new SQLiteConnection())
-				{
-					
-					Conn.ConnectionString = "Data Source="+ projectsPath + @"\\Projects\\" + oldProjectName +".db;New=False;Compress=True;Synchronous=Off";
+				{					
+					Conn.ConnectionString = connectionString(oldProjectName);
 					Conn.Open();
 					
 					SQLiteCommand DeleteCmd=new SQLiteCommand();
@@ -231,21 +208,18 @@ namespace CameratrapManager.DAO
 				}
 			} catch (Exception ex) {
 				throw ex;
-			}
-			
-		}
-		
+			}			
+		}		
 		
 		public static Image GetCurrentImage(string project, string guid)
 		{
-			try {
-				string projectsPath = System.IO.Path.GetDirectoryName( System.Reflection.Assembly.GetExecutingAssembly().Location);
-				
+			try 
+			{				
 				string currentPicture="";
 				
 				using(SQLiteConnection Conn=new SQLiteConnection())
 				{
-					Conn.ConnectionString="Data Source="+ projectsPath + @"\\Projects\\" + project + ".db;Version=3;New=False;Compress=True;Synchronous=Off";
+					Conn.ConnectionString= connectionString(project);
 					Conn.Open();
 					
 					SQLiteParameter sqlGuid =new SQLiteParameter("@guid",DbType.String){Value= guid};
@@ -253,8 +227,7 @@ namespace CameratrapManager.DAO
 					cmd=Conn.CreateCommand();
 					cmd.Parameters.Add(sqlGuid);
 					cmd.CommandText="SELECT image_base64 FROM images WHERE guid_images = @guid";
-					
-					
+										
 					using(SQLiteDataReader sqReader = cmd.ExecuteReader())
 					{
 						if (sqReader.Read())
@@ -264,49 +237,38 @@ namespace CameratrapManager.DAO
 					}
 					
 					if(currentPicture=="")
-					{
-						
+					{						
 						ResourceManager resources = new ResourceManager("CameratrapManager_db.Resources.Images",System.Reflection.Assembly.GetExecutingAssembly());
-
 						
-						return ((System.Drawing.Bitmap)(resources.GetObject("no-photo-available")));
-						
+						return ((System.Drawing.Bitmap)(resources.GetObject("no-photo-available")));						
 					}
 					else
 					{
 						return ConversionUtilities.Base64ToImage(currentPicture);
-					}
-					
+					}					
 				}
 			} catch (Exception ex) {
 				throw ex;
-			}
-			
-		}
-		
+			}			
+		}		
 		
 		public static void InsertImage (string currentProjectName, string guid, string imageBase64)
 		{
-			try {
-				string projectsPath = System.IO.Path.GetDirectoryName( System.Reflection.Assembly.GetExecutingAssembly().Location);
-				
+			try 
+			{				
 				using(SQLiteConnection Conn=new SQLiteConnection())
-				{
-					
-					Conn.ConnectionString = "Data Source="+ projectsPath + @"\\Projects\\" + currentProjectName +".db;New=False;Compress=True;Synchronous=Off";
+				{					
+					Conn.ConnectionString = connectionString(currentProjectName);
 					Conn.Open();
 					
 					SQLiteParameter sqlGuid= new SQLiteParameter("@guid",DbType.String){Value=guid};
-					SQLiteParameter image_base64 = new SQLiteParameter("@image_base64",DbType.String){Value= imageBase64};
-					
+					SQLiteParameter image_base64 = new SQLiteParameter("@image_base64",DbType.String){Value= imageBase64};					
 					
 					SQLiteCommand InsertCmd = new SQLiteCommand();
-					InsertCmd = Conn.CreateCommand();
-					
+					InsertCmd = Conn.CreateCommand();				
 					
 					InsertCmd.Parameters.Add(sqlGuid);
-					InsertCmd.Parameters.Add(image_base64);
-					
+					InsertCmd.Parameters.Add(image_base64);					
 					
 					InsertCmd.CommandText = "INSERT INTO images (guid_images, image_base64) VALUES(@guid, @image_base64)";
 					InsertCmd.ExecuteNonQuery();
@@ -316,13 +278,12 @@ namespace CameratrapManager.DAO
 			} catch (Exception ex) {
 				throw ex;
 			}
-
+		}		
+		
+		static string connectionString(string value)
+		{			
+			string conn = string.Format("Data Source={0}\\Projects\\{1}.db;Version=3;New=True;Compress=True;Synchronous=Off",_projectsPath,value);
+			return conn;
 		}
-		
-		
-		
-		
 	}
-	
-	
 }

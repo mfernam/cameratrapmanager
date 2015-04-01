@@ -121,11 +121,8 @@ namespace CameratrapManager
 									this.cameraStationsToolStripMenuItem,
 									this.photoSamplesToolStripMenuItem,
 									this.reportsToolStripMenuItem});
-			this.msMain.Location = new System.Drawing.Point(0, 0);
+			resources.ApplyResources(this.msMain, "msMain");
 			this.msMain.Name = "msMain";
-			this.msMain.Size = new System.Drawing.Size(744, 24);
-			this.msMain.TabIndex = 0;
-			this.msMain.Text = "menuStrip1";
 			// 
 			// projectToolStripMenuItem
 			// 
@@ -139,57 +136,51 @@ namespace CameratrapManager
 									this.toolStripSeparator1,
 									this.exitProgramToolStripMenuItem});
 			this.projectToolStripMenuItem.Name = "projectToolStripMenuItem";
-			this.projectToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-			this.projectToolStripMenuItem.Text = "Project";
+			resources.ApplyResources(this.projectToolStripMenuItem, "projectToolStripMenuItem");
 			// 
 			// newProjectToolStripMenuItem
 			// 
 			this.newProjectToolStripMenuItem.Name = "newProjectToolStripMenuItem";
-			this.newProjectToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-			this.newProjectToolStripMenuItem.Text = "New project";
+			resources.ApplyResources(this.newProjectToolStripMenuItem, "newProjectToolStripMenuItem");
 			this.newProjectToolStripMenuItem.Click += new System.EventHandler(this.NewProjectToolStripMenuItemClick);
 			// 
 			// existingProjectToolStripMenuItem
 			// 
 			this.existingProjectToolStripMenuItem.Name = "existingProjectToolStripMenuItem";
-			this.existingProjectToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-			this.existingProjectToolStripMenuItem.Text = "Existing project";
+			resources.ApplyResources(this.existingProjectToolStripMenuItem, "existingProjectToolStripMenuItem");
 			this.existingProjectToolStripMenuItem.Click += new System.EventHandler(this.ExistingProjectToolStripMenuItemClick);
 			// 
 			// toolStripSeparator3
 			// 
 			this.toolStripSeparator3.Name = "toolStripSeparator3";
-			this.toolStripSeparator3.Size = new System.Drawing.Size(151, 6);
+			resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
 			// 
 			// saveProjectToolStripMenuItem
 			// 
 			this.saveProjectToolStripMenuItem.Name = "saveProjectToolStripMenuItem";
-			this.saveProjectToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-			this.saveProjectToolStripMenuItem.Text = "Save project";
+			resources.ApplyResources(this.saveProjectToolStripMenuItem, "saveProjectToolStripMenuItem");
 			this.saveProjectToolStripMenuItem.Click += new System.EventHandler(this.SaveProjectToolStripMenuItemClick);
 			// 
 			// toolStripSeparator2
 			// 
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(151, 6);
+			resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
 			// 
 			// closeProjectToolStripMenuItem
 			// 
 			this.closeProjectToolStripMenuItem.Name = "closeProjectToolStripMenuItem";
-			this.closeProjectToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-			this.closeProjectToolStripMenuItem.Text = "Close project";
+			resources.ApplyResources(this.closeProjectToolStripMenuItem, "closeProjectToolStripMenuItem");
 			this.closeProjectToolStripMenuItem.Click += new System.EventHandler(this.CloseProjectToolStripMenuItemClick);
 			// 
 			// toolStripSeparator1
 			// 
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(151, 6);
+			resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
 			// 
 			// exitProgramToolStripMenuItem
 			// 
 			this.exitProgramToolStripMenuItem.Name = "exitProgramToolStripMenuItem";
-			this.exitProgramToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-			this.exitProgramToolStripMenuItem.Text = "Exit program";
+			resources.ApplyResources(this.exitProgramToolStripMenuItem, "exitProgramToolStripMenuItem");
 			this.exitProgramToolStripMenuItem.Click += new System.EventHandler(this.ExitProgramToolStripMenuItemClick);
 			// 
 			// cameraStationsToolStripMenuItem
@@ -199,28 +190,24 @@ namespace CameratrapManager
 									this.tsbRemoveStation,
 									this.tsbSelectStationImage});
 			this.cameraStationsToolStripMenuItem.Name = "cameraStationsToolStripMenuItem";
-			this.cameraStationsToolStripMenuItem.Size = new System.Drawing.Size(105, 20);
-			this.cameraStationsToolStripMenuItem.Text = "Camera Stations";
+			resources.ApplyResources(this.cameraStationsToolStripMenuItem, "cameraStationsToolStripMenuItem");
 			// 
 			// loadStationToolStripMenuItem
 			// 
 			this.loadStationToolStripMenuItem.Name = "loadStationToolStripMenuItem";
-			this.loadStationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.loadStationToolStripMenuItem.Text = "New station";
+			resources.ApplyResources(this.loadStationToolStripMenuItem, "loadStationToolStripMenuItem");
 			this.loadStationToolStripMenuItem.Click += new System.EventHandler(this.NewStationToolStripMenuItemClick);
 			// 
 			// tsbRemoveStation
 			// 
 			this.tsbRemoveStation.Name = "tsbRemoveStation";
-			this.tsbRemoveStation.Size = new System.Drawing.Size(180, 22);
-			this.tsbRemoveStation.Text = "Remove station";
+			resources.ApplyResources(this.tsbRemoveStation, "tsbRemoveStation");
 			this.tsbRemoveStation.Click += new System.EventHandler(this.tsbRemoveStationClick);
 			// 
 			// tsbSelectStationImage
 			// 
 			this.tsbSelectStationImage.Name = "tsbSelectStationImage";
-			this.tsbSelectStationImage.Size = new System.Drawing.Size(180, 22);
-			this.tsbSelectStationImage.Text = "Select station Image";
+			resources.ApplyResources(this.tsbSelectStationImage, "tsbSelectStationImage");
 			this.tsbSelectStationImage.Click += new System.EventHandler(this.TsbSelectStationImageClick);
 			// 
 			// photoSamplesToolStripMenuItem
@@ -229,21 +216,18 @@ namespace CameratrapManager
 									this.uploadSamplesToStationToolStripMenuItem,
 									this.removeCurrentSampleToolStripMenuItem});
 			this.photoSamplesToolStripMenuItem.Name = "photoSamplesToolStripMenuItem";
-			this.photoSamplesToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
-			this.photoSamplesToolStripMenuItem.Text = "Photo Samples";
+			resources.ApplyResources(this.photoSamplesToolStripMenuItem, "photoSamplesToolStripMenuItem");
 			// 
 			// uploadSamplesToStationToolStripMenuItem
 			// 
 			this.uploadSamplesToStationToolStripMenuItem.Name = "uploadSamplesToStationToolStripMenuItem";
-			this.uploadSamplesToStationToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
-			this.uploadSamplesToStationToolStripMenuItem.Text = "Upload samples to current station";
+			resources.ApplyResources(this.uploadSamplesToStationToolStripMenuItem, "uploadSamplesToStationToolStripMenuItem");
 			this.uploadSamplesToStationToolStripMenuItem.Click += new System.EventHandler(this.tsbUploadSamplesClick);
 			// 
 			// removeCurrentSampleToolStripMenuItem
 			// 
 			this.removeCurrentSampleToolStripMenuItem.Name = "removeCurrentSampleToolStripMenuItem";
-			this.removeCurrentSampleToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
-			this.removeCurrentSampleToolStripMenuItem.Text = "Remove current sample";
+			resources.ApplyResources(this.removeCurrentSampleToolStripMenuItem, "removeCurrentSampleToolStripMenuItem");
 			this.removeCurrentSampleToolStripMenuItem.Click += new System.EventHandler(this.tsbRemoveSampleClick);
 			// 
 			// reportsToolStripMenuItem
@@ -253,37 +237,30 @@ namespace CameratrapManager
 									this.tsbCompletePDF,
 									this.tsbCreateAbundancesShapefiles});
 			this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-			this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-			this.reportsToolStripMenuItem.Text = "Reports";
+			resources.ApplyResources(this.reportsToolStripMenuItem, "reportsToolStripMenuItem");
 			// 
 			// tsbDataToExcel
 			// 
 			this.tsbDataToExcel.Name = "tsbDataToExcel";
-			this.tsbDataToExcel.Size = new System.Drawing.Size(196, 22);
-			this.tsbDataToExcel.Text = "Export to Excel";
+			resources.ApplyResources(this.tsbDataToExcel, "tsbDataToExcel");
 			this.tsbDataToExcel.Click += new System.EventHandler(this.tsbExportToExcelClick);
 			// 
 			// tsbCompletePDF
 			// 
 			this.tsbCompletePDF.Name = "tsbCompletePDF";
-			this.tsbCompletePDF.Size = new System.Drawing.Size(196, 22);
-			this.tsbCompletePDF.Text = "Complete PDF Report";
+			resources.ApplyResources(this.tsbCompletePDF, "tsbCompletePDF");
 			this.tsbCompletePDF.Click += new System.EventHandler(this.tsbCompletePDFClick);
 			// 
 			// tsbCreateAbundancesShapefiles
 			// 
 			this.tsbCreateAbundancesShapefiles.Name = "tsbCreateAbundancesShapefiles";
-			this.tsbCreateAbundancesShapefiles.Size = new System.Drawing.Size(196, 22);
-			this.tsbCreateAbundancesShapefiles.Text = "Abundances Shapefiles";
+			resources.ApplyResources(this.tsbCreateAbundancesShapefiles, "tsbCreateAbundancesShapefiles");
 			this.tsbCreateAbundancesShapefiles.Click += new System.EventHandler(this.tsbCreateAbundanceShapefilesClick);
 			// 
 			// splitContainer1
 			// 
-			this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-									| System.Windows.Forms.AnchorStyles.Left) 
-									| System.Windows.Forms.AnchorStyles.Right)));
+			resources.ApplyResources(this.splitContainer1, "splitContainer1");
 			this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.splitContainer1.Location = new System.Drawing.Point(0, 24);
 			this.splitContainer1.Name = "splitContainer1";
 			// 
 			// splitContainer1.Panel1
@@ -293,22 +270,14 @@ namespace CameratrapManager
 			// splitContainer1.Panel2
 			// 
 			this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-			this.splitContainer1.Size = new System.Drawing.Size(744, 474);
-			this.splitContainer1.SplitterDistance = 131;
-			this.splitContainer1.TabIndex = 2;
 			// 
 			// tvProject
 			// 
 			this.tvProject.ContextMenuStrip = this.cmsTreeView;
-			this.tvProject.Dock = System.Windows.Forms.DockStyle.Fill;
+			resources.ApplyResources(this.tvProject, "tvProject");
 			this.tvProject.HideSelection = false;
-			this.tvProject.ImageIndex = 0;
 			this.tvProject.ImageList = this.imgListForm;
-			this.tvProject.Location = new System.Drawing.Point(0, 0);
 			this.tvProject.Name = "tvProject";
-			this.tvProject.SelectedImageIndex = 0;
-			this.tvProject.Size = new System.Drawing.Size(127, 470);
-			this.tvProject.TabIndex = 0;
 			this.tvProject.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TvProjectAfterSelect);
 			// 
 			// cmsTreeView
@@ -319,34 +288,30 @@ namespace CameratrapManager
 									this.cntxtsbRemoveSample,
 									this.cntxtsbUploadSamples});
 			this.cmsTreeView.Name = "cmsTreeView";
-			this.cmsTreeView.Size = new System.Drawing.Size(214, 92);
+			resources.ApplyResources(this.cmsTreeView, "cmsTreeView");
 			// 
 			// ctxtsbAddStationImage
 			// 
 			this.ctxtsbAddStationImage.Name = "ctxtsbAddStationImage";
-			this.ctxtsbAddStationImage.Size = new System.Drawing.Size(213, 22);
-			this.ctxtsbAddStationImage.Text = "Select Station Image";
+			resources.ApplyResources(this.ctxtsbAddStationImage, "ctxtsbAddStationImage");
 			this.ctxtsbAddStationImage.Click += new System.EventHandler(this.CtxtsbSelectStationImageClick);
 			// 
 			// ctxtsbRemoveStation
 			// 
 			this.ctxtsbRemoveStation.Name = "ctxtsbRemoveStation";
-			this.ctxtsbRemoveStation.Size = new System.Drawing.Size(213, 22);
-			this.ctxtsbRemoveStation.Text = "Remove Station";
+			resources.ApplyResources(this.ctxtsbRemoveStation, "ctxtsbRemoveStation");
 			this.ctxtsbRemoveStation.Click += new System.EventHandler(this.CtxtsbRemoveStationClick);
 			// 
 			// cntxtsbRemoveSample
 			// 
 			this.cntxtsbRemoveSample.Name = "cntxtsbRemoveSample";
-			this.cntxtsbRemoveSample.Size = new System.Drawing.Size(213, 22);
-			this.cntxtsbRemoveSample.Text = "Remove Sample";
+			resources.ApplyResources(this.cntxtsbRemoveSample, "cntxtsbRemoveSample");
 			this.cntxtsbRemoveSample.Click += new System.EventHandler(this.CntxtsbRemoveSampleClick);
 			// 
 			// cntxtsbUploadSamples
 			// 
 			this.cntxtsbUploadSamples.Name = "cntxtsbUploadSamples";
-			this.cntxtsbUploadSamples.Size = new System.Drawing.Size(213, 22);
-			this.cntxtsbUploadSamples.Text = "Upload Samples to Station";
+			resources.ApplyResources(this.cntxtsbUploadSamples, "cntxtsbUploadSamples");
 			this.cntxtsbUploadSamples.Click += new System.EventHandler(this.cntxttbUploadSamplesClick);
 			// 
 			// imgListForm
@@ -364,9 +329,7 @@ namespace CameratrapManager
 			// splitContainer2
 			// 
 			this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.splitContainer2.IsSplitterFixed = true;
-			this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+			resources.ApplyResources(this.splitContainer2, "splitContainer2");
 			this.splitContainer2.Name = "splitContainer2";
 			// 
 			// splitContainer2.Panel1
@@ -376,27 +339,18 @@ namespace CameratrapManager
 			// splitContainer2.Panel2
 			// 
 			this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
-			this.splitContainer2.Size = new System.Drawing.Size(609, 474);
-			this.splitContainer2.SplitterDistance = 485;
-			this.splitContainer2.TabIndex = 1;
 			// 
 			// pictureBox1
 			// 
-			this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+			resources.ApplyResources(this.pictureBox1, "pictureBox1");
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(481, 470);
-			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pictureBox1.TabIndex = 0;
 			this.pictureBox1.TabStop = false;
 			// 
 			// splitContainer3
 			// 
 			this.splitContainer3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.splitContainer3.Location = new System.Drawing.Point(0, 0);
+			resources.ApplyResources(this.splitContainer3, "splitContainer3");
 			this.splitContainer3.Name = "splitContainer3";
-			this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
 			// 
 			// splitContainer3.Panel1
 			// 
@@ -407,22 +361,14 @@ namespace CameratrapManager
 			this.splitContainer3.Panel2.Controls.Add(this.dgvSelectCount);
 			this.splitContainer3.Panel2.Controls.Add(this.dgvSelectSpecies);
 			this.splitContainer3.Panel2.Controls.Add(this.cmbSelectSpecies);
-			this.splitContainer3.Size = new System.Drawing.Size(120, 474);
-			this.splitContainer3.SplitterDistance = 205;
-			this.splitContainer3.TabIndex = 0;
 			// 
 			// tabControl
 			// 
-			this.tabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-									| System.Windows.Forms.AnchorStyles.Left) 
-									| System.Windows.Forms.AnchorStyles.Right)));
+			resources.ApplyResources(this.tabControl, "tabControl");
 			this.tabControl.Controls.Add(this.tabPag1);
 			this.tabControl.Controls.Add(this.tabPag2);
-			this.tabControl.Location = new System.Drawing.Point(-2, -2);
 			this.tabControl.Name = "tabControl";
 			this.tabControl.SelectedIndex = 0;
-			this.tabControl.Size = new System.Drawing.Size(120, 205);
-			this.tabControl.TabIndex = 0;
 			// 
 			// tabPag1
 			// 
@@ -434,109 +380,74 @@ namespace CameratrapManager
 			this.tabPag1.Controls.Add(this.btUnknown);
 			this.tabPag1.Controls.Add(this.btInvalid);
 			this.tabPag1.Controls.Add(this.btManagement);
-			this.tabPag1.Location = new System.Drawing.Point(4, 22);
+			resources.ApplyResources(this.tabPag1, "tabPag1");
 			this.tabPag1.Name = "tabPag1";
-			this.tabPag1.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPag1.Size = new System.Drawing.Size(112, 179);
-			this.tabPag1.TabIndex = 0;
-			this.tabPag1.Text = "Identify";
 			this.tabPag1.UseVisualStyleBackColor = true;
 			// 
 			// label1
 			// 
-			this.label1.Location = new System.Drawing.Point(47, 137);
+			resources.ApplyResources(this.label1, "label1");
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(85, 24);
-			this.label1.TabIndex = 7;
-			this.label1.Text = "Empty";
 			// 
 			// lblUnknown
 			// 
-			this.lblUnknown.Location = new System.Drawing.Point(47, 96);
+			resources.ApplyResources(this.lblUnknown, "lblUnknown");
 			this.lblUnknown.Name = "lblUnknown";
-			this.lblUnknown.Size = new System.Drawing.Size(85, 24);
-			this.lblUnknown.TabIndex = 6;
-			this.lblUnknown.Text = "Unknown";
 			// 
 			// lblInvalid
 			// 
-			this.lblInvalid.Location = new System.Drawing.Point(47, 55);
+			resources.ApplyResources(this.lblInvalid, "lblInvalid");
 			this.lblInvalid.Name = "lblInvalid";
-			this.lblInvalid.Size = new System.Drawing.Size(85, 23);
-			this.lblInvalid.TabIndex = 5;
-			this.lblInvalid.Text = "Invalid";
 			// 
 			// lblManagement
 			// 
-			this.lblManagement.Location = new System.Drawing.Point(47, 14);
+			resources.ApplyResources(this.lblManagement, "lblManagement");
 			this.lblManagement.Name = "lblManagement";
-			this.lblManagement.Size = new System.Drawing.Size(85, 23);
-			this.lblManagement.TabIndex = 4;
-			this.lblManagement.Text = "Management";
 			// 
 			// btEmpty
 			// 
-			this.btEmpty.ImageKey = "Comment-empty-48.png";
+			resources.ApplyResources(this.btEmpty, "btEmpty");
 			this.btEmpty.ImageList = this.imgListForm;
-			this.btEmpty.Location = new System.Drawing.Point(3, 126);
 			this.btEmpty.Name = "btEmpty";
-			this.btEmpty.Size = new System.Drawing.Size(38, 35);
-			this.btEmpty.TabIndex = 3;
 			this.btEmpty.UseVisualStyleBackColor = true;
 			this.btEmpty.Click += new System.EventHandler(this.BtEmptyClick);
 			// 
 			// btUnknown
 			// 
-			this.btUnknown.ImageKey = "Question.png";
+			resources.ApplyResources(this.btUnknown, "btUnknown");
 			this.btUnknown.ImageList = this.imgListForm;
-			this.btUnknown.Location = new System.Drawing.Point(3, 85);
 			this.btUnknown.Name = "btUnknown";
-			this.btUnknown.Size = new System.Drawing.Size(38, 35);
-			this.btUnknown.TabIndex = 2;
 			this.btUnknown.UseVisualStyleBackColor = true;
 			this.btUnknown.Click += new System.EventHandler(this.BtUnknownClick);
 			// 
 			// btInvalid
 			// 
-			this.btInvalid.ImageKey = "Orange-Camera-Symbol-128.png";
+			resources.ApplyResources(this.btInvalid, "btInvalid");
 			this.btInvalid.ImageList = this.imgListForm;
-			this.btInvalid.Location = new System.Drawing.Point(3, 44);
 			this.btInvalid.Name = "btInvalid";
-			this.btInvalid.Size = new System.Drawing.Size(38, 35);
-			this.btInvalid.TabIndex = 1;
 			this.btInvalid.UseVisualStyleBackColor = true;
 			this.btInvalid.Click += new System.EventHandler(this.BtInvalidClick);
 			// 
 			// btManagement
 			// 
-			this.btManagement.ImageKey = "Blue-Camera-Symbol-128.png";
+			resources.ApplyResources(this.btManagement, "btManagement");
 			this.btManagement.ImageList = this.imgListForm;
-			this.btManagement.Location = new System.Drawing.Point(3, 3);
 			this.btManagement.Name = "btManagement";
-			this.btManagement.Size = new System.Drawing.Size(38, 35);
-			this.btManagement.TabIndex = 0;
 			this.btManagement.UseVisualStyleBackColor = true;
 			this.btManagement.Click += new System.EventHandler(this.BtManagementClick);
 			// 
 			// tabPag2
 			// 
 			this.tabPag2.Controls.Add(this.lstViewData);
-			this.tabPag2.Location = new System.Drawing.Point(4, 22);
+			resources.ApplyResources(this.tabPag2, "tabPag2");
 			this.tabPag2.Name = "tabPag2";
-			this.tabPag2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPag2.Size = new System.Drawing.Size(112, 179);
-			this.tabPag2.TabIndex = 1;
-			this.tabPag2.Text = "Metadata";
 			this.tabPag2.UseVisualStyleBackColor = true;
 			// 
 			// lstViewData
 			// 
-			this.lstViewData.Dock = System.Windows.Forms.DockStyle.Fill;
+			resources.ApplyResources(this.lstViewData, "lstViewData");
 			this.lstViewData.GridLines = true;
-			this.lstViewData.Location = new System.Drawing.Point(3, 3);
 			this.lstViewData.Name = "lstViewData";
-			this.lstViewData.Size = new System.Drawing.Size(106, 173);
-			this.lstViewData.TabIndex = 1;
 			this.lstViewData.UseCompatibleStateImageBehavior = false;
 			// 
 			// dgvSelectCount
@@ -554,14 +465,10 @@ namespace CameratrapManager
 			this.dgvSelectCount.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this.dgvSelectCount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvSelectCount.ColumnHeadersVisible = false;
-			this.dgvSelectCount.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.dgvSelectCount.Location = new System.Drawing.Point(0, 170);
+			resources.ApplyResources(this.dgvSelectCount, "dgvSelectCount");
 			this.dgvSelectCount.Name = "dgvSelectCount";
 			this.dgvSelectCount.ReadOnly = true;
 			this.dgvSelectCount.RowHeadersVisible = false;
-			this.dgvSelectCount.ScrollBars = System.Windows.Forms.ScrollBars.None;
-			this.dgvSelectCount.Size = new System.Drawing.Size(116, 91);
-			this.dgvSelectCount.TabIndex = 1;
 			this.dgvSelectCount.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvSelectCountClick);
 			// 
 			// dgvSelectSpecies
@@ -570,80 +477,74 @@ namespace CameratrapManager
 			this.dgvSelectSpecies.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.dgvSelectSpecies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvSelectSpecies.ColumnHeadersVisible = false;
-			this.dgvSelectSpecies.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dgvSelectSpecies.Location = new System.Drawing.Point(0, 21);
+			resources.ApplyResources(this.dgvSelectSpecies, "dgvSelectSpecies");
 			this.dgvSelectSpecies.Name = "dgvSelectSpecies";
 			this.dgvSelectSpecies.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.dgvSelectSpecies.RowTemplate.Height = 30;
-			this.dgvSelectSpecies.Size = new System.Drawing.Size(116, 240);
-			this.dgvSelectSpecies.TabIndex = 26;
-			this.dgvSelectSpecies.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvSelectSpeciesClick);
 			this.dgvSelectSpecies.UserDeletedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.DgvSelectSpeciesUserDeletedRow);
+			this.dgvSelectSpecies.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvSelectSpeciesClick);
 			// 
 			// cmbSelectSpecies
 			// 
 			this.cmbSelectSpecies.AutoCompleteCustomSource.AddRange(new string[] {
-									"Erinaceus europaeus",
-									"Atelerix algirus",
-									"Microtus arvalis",
-									"Microtus cabrerae",
-									"Microtus agrestis",
-									"Microtus lusitanicus",
-									"Microtus duodecimcostatus",
-									"Microtus gerbei",
-									"Chionomys nivalis",
-									"Arvicola terrestris",
-									"Arvicola sapidus",
-									"Myodes glareolus",
-									"Ondatra zibethicus",
-									"Micromys minutus",
-									"Apodemus flavicollis",
-									"Apodemus sylvaticus",
-									"Mus musculus",
-									"Mus spretus",
-									"Rattus norvegicus",
-									"Rattus rattus",
-									"Eliomys quercinus",
-									"Glis glis",
-									"Sciurus vulgaris",
-									"Atlantoxerus getulus",
-									"Marmota marmota",
-									"Myocastor coipus",
-									"Lepus europaeus",
-									"Lepus castroviejoi",
-									"Lepus granatensis",
-									"Oryctolagus cuniculus",
-									"Ursus arctos",
-									"Canis lupus",
-									"Vulpes vulpes",
-									"Mustela erminea",
-									"Mustela nivalis",
-									"Mustela lutreola",
-									"Neovison vison",
-									"Mustela putorius",
-									"Martes martes",
-									"Martes foina",
-									"Lutra lutra",
-									"Meles meles",
-									"Herpestes ichneumon",
-									"Genetta genetta",
-									"Lynx pardinus",
-									"Felis silvestris",
-									"Sus scrofa",
-									"Ovis orientalis",
-									"Capra pyrenaica",
-									"Rupicapra pyrenaica",
-									"Ammotragus lervia",
-									"Cervus elaphus",
-									"Dama dama",
-									"Capreolus capreolus"});
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource1"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource2"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource3"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource4"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource5"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource6"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource7"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource8"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource9"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource10"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource11"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource12"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource13"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource14"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource15"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource16"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource17"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource18"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource19"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource20"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource21"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource22"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource23"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource24"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource25"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource26"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource27"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource28"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource29"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource30"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource31"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource32"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource33"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource34"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource35"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource36"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource37"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource38"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource39"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource40"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource41"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource42"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource43"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource44"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource45"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource46"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource47"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource48"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource49"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource50"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource51"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource52"),
+									resources.GetString("cmbSelectSpecies.AutoCompleteCustomSource53")});
 			this.cmbSelectSpecies.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-			this.cmbSelectSpecies.Dock = System.Windows.Forms.DockStyle.Top;
+			resources.ApplyResources(this.cmbSelectSpecies, "cmbSelectSpecies");
 			this.cmbSelectSpecies.FormattingEnabled = true;
-			this.cmbSelectSpecies.Location = new System.Drawing.Point(0, 0);
 			this.cmbSelectSpecies.Name = "cmbSelectSpecies";
-			this.cmbSelectSpecies.Size = new System.Drawing.Size(116, 21);
-			this.cmbSelectSpecies.TabIndex = 26;
 			this.cmbSelectSpecies.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CmbSelectSpeciesKeyDown);
 			// 
 			// toolStripContainer1
@@ -655,64 +556,51 @@ namespace CameratrapManager
 			// 
 			// toolStripContainer1.ContentPanel
 			// 
-			this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(744, 501);
-			this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+			resources.ApplyResources(this.toolStripContainer1.ContentPanel, "toolStripContainer1.ContentPanel");
+			resources.ApplyResources(this.toolStripContainer1, "toolStripContainer1");
 			this.toolStripContainer1.LeftToolStripPanelVisible = false;
-			this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
 			this.toolStripContainer1.Name = "toolStripContainer1";
 			this.toolStripContainer1.RightToolStripPanelVisible = false;
-			this.toolStripContainer1.Size = new System.Drawing.Size(744, 523);
-			this.toolStripContainer1.TabIndex = 4;
-			this.toolStripContainer1.Text = "toolStripContainer1";
 			this.toolStripContainer1.TopToolStripPanelVisible = false;
 			// 
 			// StatusStrip
 			// 
-			this.StatusStrip.Dock = System.Windows.Forms.DockStyle.None;
+			resources.ApplyResources(this.StatusStrip, "StatusStrip");
 			this.StatusStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
 			this.StatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.txtProcessStatus,
 									this.toolStripProgressBar1,
 									this.txtProcessStatus2});
-			this.StatusStrip.Location = new System.Drawing.Point(0, 0);
 			this.StatusStrip.Name = "StatusStrip";
-			this.StatusStrip.Size = new System.Drawing.Size(744, 22);
-			this.StatusStrip.TabIndex = 0;
 			// 
 			// txtProcessStatus
 			// 
 			this.txtProcessStatus.Name = "txtProcessStatus";
-			this.txtProcessStatus.Size = new System.Drawing.Size(84, 17);
-			this.txtProcessStatus.Text = "Process status:";
+			resources.ApplyResources(this.txtProcessStatus, "txtProcessStatus");
 			// 
 			// toolStripProgressBar1
 			// 
 			this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-			this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
-			this.toolStripProgressBar1.Click += new System.EventHandler(this.ToolStripProgressBar1Click);
+			resources.ApplyResources(this.toolStripProgressBar1, "toolStripProgressBar1");
 			// 
 			// txtProcessStatus2
 			// 
 			this.txtProcessStatus2.Name = "txtProcessStatus2";
-			this.txtProcessStatus2.Size = new System.Drawing.Size(84, 17);
-			this.txtProcessStatus2.Text = "Image 20/1252";
+			resources.ApplyResources(this.txtProcessStatus2, "txtProcessStatus2");
 			// 
 			// MainForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(744, 523);
 			this.Controls.Add(this.splitContainer1);
 			this.Controls.Add(this.msMain);
 			this.Controls.Add(this.toolStripContainer1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.msMain;
 			this.Name = "MainForm";
-			this.Text = "CameratrapManager";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainFormFormClosing);
 			this.Load += new System.EventHandler(this.MainFormLoad);
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainFormFormClosing);
 			this.msMain.ResumeLayout(false);
 			this.msMain.PerformLayout();
 			this.splitContainer1.Panel1.ResumeLayout(false);

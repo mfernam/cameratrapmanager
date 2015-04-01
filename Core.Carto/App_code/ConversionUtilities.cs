@@ -107,9 +107,7 @@ namespace Core.Carto
 			} catch (Exception ex) {
 				throw ex;
 			}
-			
 		}
-		
 		
 		public static string ImageToBase64(Image image, System.Drawing.Imaging.ImageFormat format)
 		{
@@ -127,9 +125,7 @@ namespace Core.Carto
 			} catch (Exception ex) {
 				throw ex;
 			}
-			 
 		}
-		
 		
 		public static Image Base64ToImage(string base64String)
 		{
@@ -147,9 +143,6 @@ namespace Core.Carto
 			} catch (Exception ex) {
 				throw ex;
 			}
-			 
-		}
-		
-		
+		}	
 	}
 }

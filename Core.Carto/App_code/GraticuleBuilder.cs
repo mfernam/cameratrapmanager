@@ -49,11 +49,9 @@ namespace Core.Carto
 		int _gridCols=0;
 		
 		
-
 		public List<IPolygon> Graticule {
 			get { return _graticule; }
 		}
-
 		
 		
 		private void TotalEnvelope(List<IPolygon> bounds, int cellWidth, int cellHeight)
